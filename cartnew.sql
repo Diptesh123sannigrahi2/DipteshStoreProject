@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2022 at 12:48 PM
+-- Generation Time: Jan 01, 2022 at 03:14 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -36,15 +36,6 @@ CREATE TABLE `cartnew` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `cartnew`
---
-
-INSERT INTO `cartnew` (`id`, `Prodct_id`, `name`, `price`, `count`) VALUES
-(11, 'A45', '', '', 2),
-(12, 'A45', '', '', 1),
-(13, 'A13', '', '', 1);
-
---
 -- Indexes for dumped tables
 --
 
@@ -62,7 +53,7 @@ ALTER TABLE `cartnew`
 -- AUTO_INCREMENT for table `cartnew`
 --
 ALTER TABLE `cartnew`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

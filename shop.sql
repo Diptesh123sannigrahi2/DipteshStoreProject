@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2022 at 12:47 PM
+-- Generation Time: Jan 01, 2022 at 02:32 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -41,7 +41,8 @@ CREATE TABLE `shop` (
 --
 
 INSERT INTO `shop` (`id`, `Shop_id`, `name`, `Type`, `Address`, `Image`) VALUES
-(1, 'A11', 'StoreKolkata', 'All Type of Products', 'Saltlake,Sector-5,WB', 'shop1.jpg');
+(1, 'X11', 'StoreKolkata', 'All Type of Products', 'Saltlake,Sector-5,WB', 'shop1.jpg'),
+(2, 'X12', 'MY.SHOP', 'Grocery ', '24-mord,Bidhannagar', 'shop2.jpg');
 
 --
 -- Indexes for dumped tables
@@ -61,7 +62,7 @@ ALTER TABLE `shop`
 -- AUTO_INCREMENT for table `shop`
 --
 ALTER TABLE `shop`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

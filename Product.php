@@ -10,7 +10,7 @@ if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
     exit();
   }
-
+  $shop_id = $_GET["id"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +28,13 @@ if (mysqli_connect_errno()) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
+    .container1{
+	width: 30px;
+	height: 40px;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 5px;
+}
     .search-container {
         max-width: 600px;
         margin: 60px auto;
@@ -86,19 +93,24 @@ if (mysqli_connect_errno()) {
 	</div>
 	</div>
     <div class="search-container">
-        <form action="">
+        <form action="" method="POST">
             <input type="text" placeholder="Search Product" name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
+            <button type="submit" name="submit"><i class="fa fa-search"></i></button>
         </form>
-    </div> 
+    </div>
+    <div class="container1">
+                    <h2>Products</h2>
+        </div> 
 <div class="container">
     <div class="row">
         <div class="col-4">
 <?php
-        $sequery="SELECT * FROM `product` ORDER BY RAND() ";
-           $query=mysqli_query($con,$sequery);
-           $nums=mysqli_num_rows($query);
-           while($data= mysqli_fetch_array($query))
+        if (isset($_POST['submit'])) {
+            $search = $_POST['search'];
+            $sequery = "SELECT * FROM `product` where shop_id = '$shop_id' and name LIKE '%{$search}%'  order by id desc";
+            $query = mysqli_query($con, $sequery);
+            $nums = mysqli_num_rows($query);
+            while ($data = mysqli_fetch_array($query)) 
            {
                ?>
             <div class="col-4">
@@ -115,6 +127,26 @@ if (mysqli_connect_errno()) {
       
 <?php       
             }
+        } else {
+
+            $sequery="SELECT * FROM `product` where shop_id = '$shop_id' ORDER BY RAND()";
+            $query=mysqli_query($con,$sequery);
+            $nums=mysqli_num_rows($query);
+            while($data= mysqli_fetch_array($query))
+            {
+                ?>
+             <div class="col-4">
+             <a href="Product_deatils.php?id=<?php echo $data['Prodct_id']  ?>"><img src="images/<?php echo $data['Image']  ?>" alt=""></a>
+             <a href="Product_details.php?id=<?php echo $data['Prodct_id']  ?>"><h4><?php echo $data['name']  ?></h4></a>
+             <!-- <p><?php echo $data['Prodct_id']  ?></p>
+             <p><?php echo $data['name']  ?></p> -->
+             <p>Rs.<?php echo $data['price']  ?>.00</p>
+             <p><?php echo $data['Details']  ?></p>
+             <!-- <a href=""><img src="images/<?php echo $data['Image']  ?>" alt="Oppo K3"></a> -->
+            </div>
+        <?php
+            }
+        }
 ?>
         </div>
         </div>

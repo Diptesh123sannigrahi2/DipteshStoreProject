@@ -11,8 +11,6 @@ if (mysqli_connect_errno()) {
     exit();
 }
 $Prodct_id = $_GET["id"];
-echo $Prodct_id;
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +68,7 @@ input[type="number"]{
 			<nav>
 				<ul>
 					<li><a href="Home.php">Home</a></li>
-					<li><a href="Product.php">Product</a></li>
+					<li><a href="">Product</a></li>
 					<li><a href="">About</a></li>
 					<li><a href="">Contact</a></li>
 					<li><a href="">Account</a></li>
@@ -153,16 +151,15 @@ input[type="number"]{
                 $user=$_POST['user'];
                 $msg=$_POST['msg'];
                 
-                $vsql="INSERT INTO `comment`(`id`, `Prodct_id`, `Review`, `user`) VALUES ('','$Prodct_id','$msg','$user')";
+                $vsql="INSERT INTO `comment` (`id`, `Prodct_id`, `Review`, `user`) VALUES ('0','$Prodct_id','$msg','$user')";
                 
                 if($con->query($vsql) == true){
                     echo "Successfully Commented";
+                    echo "<script> window.reload(); </script>";
                 }
                 else{
                     echo "ERROR: $vsql <br> $con->error";
                 }
-
-                $con->close();
                 
             }
         ?>
@@ -171,7 +168,7 @@ input[type="number"]{
                 
                 $count=$_POST['count'];
 
-                $nsql="INSERT INTO `cartnew`(`id`, `Prodct_id`,`name`, `price`, `count`) VALUES ('','$Prodct_id','','','$count')";
+                $nsql="INSERT INTO `cartnew` (`id`, `Prodct_id`,`name`, `price`, `count`) VALUES ('0','$Prodct_id','0','0','$count')";
                 
                 if($con->query($nsql) == true){
                     echo "Successfully Added to Cart";
@@ -179,8 +176,6 @@ input[type="number"]{
                 else{
                     echo "ERROR: $nsql <br> $con->error";
                 }
-
-                $con->close();
                 
             }
         ?>
