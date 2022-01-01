@@ -1,8 +1,8 @@
 <?php 
 $host="localhost";
-$user="root";
-$password="";
-$db="demo";
+$user="id18208313_dipteshstorex";
+$password="6]whlg-r*[GmA2e*";
+$db="id18208313_dipteshstore1";
 
 $con=mysqli_connect($host,$user,$password,$db);
 
