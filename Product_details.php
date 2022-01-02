@@ -87,7 +87,7 @@ input[type="number"]{
            {
                ?>
             <div class="col-4">
-            <a href="Product_deatils.php?id=<?php echo $data['Prodct_id']  ?>"><img src="images/<?php echo $data['Image']  ?>" alt=""></a>
+            <a><img src="images/<?php echo $data['Image']  ?>" alt=""></a>
             <a href="Product_details.php?id=<?php echo $data['Prodct_id']  ?>"><h4><?php echo $data['name']  ?></h4></a>
             <!-- <p><?php echo $data['Prodct_id']  ?></p>
             <p><?php echo $data['name']  ?></p> -->
